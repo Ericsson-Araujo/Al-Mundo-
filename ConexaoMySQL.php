@@ -46,6 +46,24 @@ $sql = "";
 //mysqli_query($conn,"update pessoa set nome = 'Ericsson' where idpessoa = 1");
 
 /*
+    //Preparando declarações e executando - Insert:
+    
+    $sql = "INSERT INTO user (fName, lName, phone, msg) VALUES (?,?,?,?)";
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param("ssss", $val1, $val2, $val3, $val4);
+
+    $val1 = $_POST['fname'];
+    $val2 = $_POST['lname'];
+    $val3 = $_POST['phone'];
+    $val4 = $_POST['message'];
+
+    $stmt->execute();
+
+    $stmt->close();
+*/
+
+/*
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
