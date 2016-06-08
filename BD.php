@@ -29,7 +29,7 @@ class BD
 	public function gravarDados($id, $fnome, $lnome, $fone) {
 		$query ="";
 		if($id>0){
-			$query = "UPDATE user SET fName = $fnome, lName = $lnome, phone = $fone WHERE id = $id";
+			$query = "UPDATE user SET fName = '$fnome', lName = '$lnome', phone = '$fone' WHERE id = '$id' ";
 		}else{
 			$query = "INSERT INTO user (fName, lName, phone) VALUES ('".$fnome."', '".$lnome."', '".$fone."')";			
 		}
@@ -74,6 +74,10 @@ class BD
 		 }catch(PDOException $e){
 	    	return "Erro ".$e->getMessage()."<br>".$query;
 	    }
+	}
+
+	public function setSgbd($sgbd) {
+		$this->sgbd = $sgbd;
 	}
 
 	public function setServidor($servidor) {
